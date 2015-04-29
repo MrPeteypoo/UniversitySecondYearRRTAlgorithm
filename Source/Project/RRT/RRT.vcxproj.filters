@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\RRTDemo.cpp" />
+    <ClCompile Include="..\..\Level\LevelData.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Level\LevelViewer.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RRT\RRT.cpp">
+      <Filter>RRT</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\RRTDemo.hpp" />
+    <ClInclude Include="..\..\Level\LevelData.hpp">
+      <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Level\LevelViewer.hpp">
+      <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RRT\Tree.hpp">
+      <Filter>RRT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RRT\RRT.hpp">
+      <Filter>RRT</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Level">
+      <UniqueIdentifier>{02614532-18fa-44f3-97e8-d7faea4b94de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RRT">
+      <UniqueIdentifier>{f60b8142-1ab5-43ac-a04e-827fbad249bc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

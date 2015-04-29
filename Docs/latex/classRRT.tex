@@ -1,0 +1,464 @@
+\hypertarget{classRRT}{\section{R\+R\+T Class Reference}
+\label{classRRT}\index{R\+R\+T@{R\+R\+T}}
+}
+
+
+A class which creates an \hyperlink{classRRT}{R\+R\+T} tree when given a map and a start and end point.  
+
+
+
+
+{\ttfamily \#include $<$R\+R\+T.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRRT_ab5a2cf5a9d8adb4077034047b7764c1b}{R\+R\+T} (const float sample\+Distance=0.\+25f, const float branch\+Distance=15.\+f)
+\begin{DoxyCompactList}\small\item\em Construct an \hyperlink{classRRT}{R\+R\+T} object with the required algorithm parameters. \end{DoxyCompactList}\item 
+\hyperlink{classRRT_ad5ead60ff7ffe318629226ee130d3e71}{R\+R\+T} (\hyperlink{classRRT}{R\+R\+T} \&\&move)
+\item 
+\hyperlink{classRRT}{R\+R\+T} \& \hyperlink{classRRT_ac93c18af76ce7b91b981daeac72146ce}{operator=} (\hyperlink{classRRT}{R\+R\+T} \&\&move)
+\item 
+\hyperlink{classRRT_a3636453ca77a4c95f0a9d0efffde30f7}{R\+R\+T} (const \hyperlink{classRRT}{R\+R\+T} \&copy)=default
+\item 
+\hyperlink{classRRT}{R\+R\+T} \& \hyperlink{classRRT_a94b62c34f8ada82dc56c620fdaf0a13c}{operator=} (const \hyperlink{classRRT}{R\+R\+T} \&copy)=default
+\item 
+\hyperlink{classRRT_af5f26f011cc50d90f7e93d6cd297920c}{$\sim$\+R\+R\+T} ()=default
+\item 
+const sf\+::\+Vector2i \& \hyperlink{classRRT_ad3cf3f119687f64b14ad5234daae3dc5}{get\+Start} () const 
+\begin{DoxyCompactList}\small\item\em Obtains the starting point of the \hyperlink{classRRT}{R\+R\+T} algorithm. \end{DoxyCompactList}\item 
+const sf\+::\+Vector2i \& \hyperlink{classRRT_a320e5980cb9a3a8e4a422b03bff1da73}{get\+End} () const 
+\begin{DoxyCompactList}\small\item\em Obtains the end point of the \hyperlink{classRRT}{R\+R\+T} algorithm. \end{DoxyCompactList}\item 
+void \hyperlink{classRRT_ace95930cd4860fc4afb9ccc329e1f010}{draw} (sf\+::\+Render\+Target \&draw\+To, const sf\+::\+Vector2f \&scale)
+\begin{DoxyCompactList}\small\item\em Draws the entire \hyperlink{classRRT}{R\+R\+T} tree to the given target. \end{DoxyCompactList}\item 
+bool \hyperlink{classRRT_a9b27ef76b0e43d8ff3f10ed9db287c35}{has\+Finished} () const 
+\begin{DoxyCompactList}\small\item\em Determines if the goal has been reached. \end{DoxyCompactList}\item 
+void \hyperlink{classRRT_ab874a1061b18086df06ac1e4dc91b27d}{prepare\+Tree} (const std\+::shared\+\_\+ptr$<$ \hyperlink{classLevelData}{Level\+Data} $>$ \&data, const sf\+::\+Vector2i \&start, const sf\+::\+Vector2i \&end)
+\begin{DoxyCompactList}\small\item\em Prepares the \hyperlink{classRRT}{R\+R\+T} algorithm for generating nodes. \end{DoxyCompactList}\item 
+void \hyperlink{classRRT_ad906dded9e6d3bb3f1f1f5972cd3fdf7}{generate\+Branch} ()
+\begin{DoxyCompactList}\small\item\em Causes the algorithm to produce an extra branch if it hasn't already reached the goal. \end{DoxyCompactList}\item 
+bool \hyperlink{classRRT_ac87ec16ecb94d25a9941b29c75dc83fa}{is\+Valid\+Tile} (const sf\+::\+Vector2i \&position, const \hyperlink{LevelData_8hpp_a47dee72188473c57343127b1a5843398}{Tile\+Type} base) const 
+\begin{DoxyCompactList}\small\item\em Checks if the tile at the given position is valid according to the base type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+R\+R\+T\+Tree\+::\+Branch \hyperlink{classRRT_a21ff259bb7d646a09667b50602663abf}{determine\+Nearest} (const sf\+::\+Vector2i \&position) const 
+\begin{DoxyCompactList}\small\item\em Determines the Branch closest to the given position. \end{DoxyCompactList}\item 
+R\+R\+T\+Tree\+::\+Branch \hyperlink{classRRT_a1393c4dc3be5c4d66756dbfb8b75abee}{calculate\+Branch} (const sf\+::\+Vector2i \&start, const sf\+::\+Vector2i \&end) const 
+\begin{DoxyCompactList}\small\item\em Calculates a new branch between the start and end point by sampling and checking for collision. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \hyperlink{classLevelData}{Level\+Data} $>$ \hyperlink{classRRT_a4990cccae7cd2160f1fa6e970242365a}{m\+\_\+data} \{ \}
+\begin{DoxyCompactList}\small\item\em A pointer to the \hyperlink{classLevelData}{Level\+Data} which the \hyperlink{classTree}{Tree} will be generated with. \end{DoxyCompactList}\item 
+sf\+::\+Vector2i \hyperlink{classRRT_a4f0394ed9f6cd596f13b19a1617e56f9}{m\+\_\+start} \{ \}
+\begin{DoxyCompactList}\small\item\em The start point of the \hyperlink{classRRT}{R\+R\+T} algorithm. \end{DoxyCompactList}\item 
+sf\+::\+Vector2i \hyperlink{classRRT_a96f886227de84066adb285cbc6dcb2f5}{m\+\_\+end} \{ \}
+\begin{DoxyCompactList}\small\item\em The end point of the \hyperlink{classRRT}{R\+R\+T} algorithm. \end{DoxyCompactList}\item 
+float \hyperlink{classRRT_ad1501f1319a73e96ebdc3a9bb76dbdca}{m\+\_\+sample\+Distance} \{ 0 \}
+\begin{DoxyCompactList}\small\item\em How much to increment by when sampling the distance. \end{DoxyCompactList}\item 
+float \hyperlink{classRRT_a2aaaa69617cfd685ae1d504e3cf31317}{m\+\_\+branch\+Distance} \{ 0 \}
+\begin{DoxyCompactList}\small\item\em The maximum distance of a branch. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+R\+T\+Tree\+::\+Branch $>$ \hyperlink{classRRT_a25e924b6450a7dc97c4ecff2735b5889}{m\+\_\+nodes} \{ \}
+\begin{DoxyCompactList}\small\item\em A collection of pointers to each branch in tile order. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \hyperlink{RRT_8hpp_ad96bf2a5632cc2b01900b403e90b1607}{R\+R\+T\+Tree} $>$ \hyperlink{classRRT_a2905ea09c16ae59d6ee1beae15d12b2e}{m\+\_\+tree} \{ \}
+\begin{DoxyCompactList}\small\item\em The tree containing each node and its branches. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class which creates an \hyperlink{classRRT}{R\+R\+T} tree when given a map and a start and end point. 
+
+
+
+Definition at line 27 of file R\+R\+T.\+hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classRRT_ab5a2cf5a9d8adb4077034047b7764c1b}{\index{R\+R\+T@{R\+R\+T}!R\+R\+T@{R\+R\+T}}
+\index{R\+R\+T@{R\+R\+T}!R\+R\+T@{R\+R\+T}}
+\subsubsection[{R\+R\+T}]{\setlength{\rightskip}{0pt plus 5cm}R\+R\+T\+::\+R\+R\+T (
+\begin{DoxyParamCaption}
+\item[{const float}]{sample\+Distance = {\ttfamily 0.25f}, }
+\item[{const float}]{branch\+Distance = {\ttfamily 15.f}}
+\end{DoxyParamCaption}
+)}}\label{classRRT_ab5a2cf5a9d8adb4077034047b7764c1b}
+
+
+Construct an \hyperlink{classRRT}{R\+R\+T} object with the required algorithm parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample\+Distance} & The incrementation to use when sampling between branches during collision detection. \\
+\hline
+{\em branch\+Distance} & The maximum distance of a branch. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 21 of file R\+R\+T.\+cpp.
+
+\hypertarget{classRRT_ad5ead60ff7ffe318629226ee130d3e71}{\index{R\+R\+T@{R\+R\+T}!R\+R\+T@{R\+R\+T}}
+\index{R\+R\+T@{R\+R\+T}!R\+R\+T@{R\+R\+T}}
+\subsubsection[{R\+R\+T}]{\setlength{\rightskip}{0pt plus 5cm}R\+R\+T\+::\+R\+R\+T (
+\begin{DoxyParamCaption}
+\item[{{\bf R\+R\+T} \&\&}]{move}
+\end{DoxyParamCaption}
+)}}\label{classRRT_ad5ead60ff7ffe318629226ee130d3e71}
+
+
+Definition at line 31 of file R\+R\+T.\+cpp.
+
+\hypertarget{classRRT_a3636453ca77a4c95f0a9d0efffde30f7}{\index{R\+R\+T@{R\+R\+T}!R\+R\+T@{R\+R\+T}}
+\index{R\+R\+T@{R\+R\+T}!R\+R\+T@{R\+R\+T}}
+\subsubsection[{R\+R\+T}]{\setlength{\rightskip}{0pt plus 5cm}R\+R\+T\+::\+R\+R\+T (
+\begin{DoxyParamCaption}
+\item[{const {\bf R\+R\+T} \&}]{copy}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [default]}}}\label{classRRT_a3636453ca77a4c95f0a9d0efffde30f7}
+\hypertarget{classRRT_af5f26f011cc50d90f7e93d6cd297920c}{\index{R\+R\+T@{R\+R\+T}!````~R\+R\+T@{$\sim$\+R\+R\+T}}
+\index{````~R\+R\+T@{$\sim$\+R\+R\+T}!R\+R\+T@{R\+R\+T}}
+\subsubsection[{$\sim$\+R\+R\+T}]{\setlength{\rightskip}{0pt plus 5cm}R\+R\+T\+::$\sim$\+R\+R\+T (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [default]}}}\label{classRRT_af5f26f011cc50d90f7e93d6cd297920c}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classRRT_ac93c18af76ce7b91b981daeac72146ce}{\index{R\+R\+T@{R\+R\+T}!operator=@{operator=}}
+\index{operator=@{operator=}!R\+R\+T@{R\+R\+T}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\+R\+T} \& R\+R\+T\+::operator= (
+\begin{DoxyParamCaption}
+\item[{{\bf R\+R\+T} \&\&}]{move}
+\end{DoxyParamCaption}
+)}}\label{classRRT_ac93c18af76ce7b91b981daeac72146ce}
+
+
+Definition at line 37 of file R\+R\+T.\+cpp.
+
+\hypertarget{classRRT_a94b62c34f8ada82dc56c620fdaf0a13c}{\index{R\+R\+T@{R\+R\+T}!operator=@{operator=}}
+\index{operator=@{operator=}!R\+R\+T@{R\+R\+T}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\+R\+T}\& R\+R\+T\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf R\+R\+T} \&}]{copy}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [default]}}}\label{classRRT_a94b62c34f8ada82dc56c620fdaf0a13c}
+\hypertarget{classRRT_ad3cf3f119687f64b14ad5234daae3dc5}{\index{R\+R\+T@{R\+R\+T}!get\+Start@{get\+Start}}
+\index{get\+Start@{get\+Start}!R\+R\+T@{R\+R\+T}}
+\subsubsection[{get\+Start}]{\setlength{\rightskip}{0pt plus 5cm}const sf\+::\+Vector2i\& R\+R\+T\+::get\+Start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classRRT_ad3cf3f119687f64b14ad5234daae3dc5}
+
+
+Obtains the starting point of the \hyperlink{classRRT}{R\+R\+T} algorithm. 
+
+
+
+Definition at line 53 of file R\+R\+T.\+hpp.
+
+\hypertarget{classRRT_a320e5980cb9a3a8e4a422b03bff1da73}{\index{R\+R\+T@{R\+R\+T}!get\+End@{get\+End}}
+\index{get\+End@{get\+End}!R\+R\+T@{R\+R\+T}}
+\subsubsection[{get\+End}]{\setlength{\rightskip}{0pt plus 5cm}const sf\+::\+Vector2i\& R\+R\+T\+::get\+End (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classRRT_a320e5980cb9a3a8e4a422b03bff1da73}
+
+
+Obtains the end point of the \hyperlink{classRRT}{R\+R\+T} algorithm. 
+
+
+
+Definition at line 56 of file R\+R\+T.\+hpp.
+
+\hypertarget{classRRT_ace95930cd4860fc4afb9ccc329e1f010}{\index{R\+R\+T@{R\+R\+T}!draw@{draw}}
+\index{draw@{draw}!R\+R\+T@{R\+R\+T}}
+\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}void R\+R\+T\+::draw (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Render\+Target \&}]{draw\+To, }
+\item[{const sf\+::\+Vector2f \&}]{scale}
+\end{DoxyParamCaption}
+)}}\label{classRRT_ace95930cd4860fc4afb9ccc329e1f010}
+
+
+Draws the entire \hyperlink{classRRT}{R\+R\+T} tree to the given target. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em draw\+To} & The target to draw the tree to. \\
+\hline
+{\em scale} & The scalar to used when determining pixel position. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 65 of file R\+R\+T.\+cpp.
+
+\hypertarget{classRRT_a9b27ef76b0e43d8ff3f10ed9db287c35}{\index{R\+R\+T@{R\+R\+T}!has\+Finished@{has\+Finished}}
+\index{has\+Finished@{has\+Finished}!R\+R\+T@{R\+R\+T}}
+\subsubsection[{has\+Finished}]{\setlength{\rightskip}{0pt plus 5cm}bool R\+R\+T\+::has\+Finished (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classRRT_a9b27ef76b0e43d8ff3f10ed9db287c35}
+
+
+Determines if the goal has been reached. 
+
+
+
+Definition at line 111 of file R\+R\+T.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{classRRT_a9b27ef76b0e43d8ff3f10ed9db287c35_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classRRT_ab874a1061b18086df06ac1e4dc91b27d}{\index{R\+R\+T@{R\+R\+T}!prepare\+Tree@{prepare\+Tree}}
+\index{prepare\+Tree@{prepare\+Tree}!R\+R\+T@{R\+R\+T}}
+\subsubsection[{prepare\+Tree}]{\setlength{\rightskip}{0pt plus 5cm}void R\+R\+T\+::prepare\+Tree (
+\begin{DoxyParamCaption}
+\item[{const std\+::shared\+\_\+ptr$<$ {\bf Level\+Data} $>$ \&}]{data, }
+\item[{const sf\+::\+Vector2i \&}]{start, }
+\item[{const sf\+::\+Vector2i \&}]{end}
+\end{DoxyParamCaption}
+)}}\label{classRRT_ab874a1061b18086df06ac1e4dc91b27d}
+
+
+Prepares the \hyperlink{classRRT}{R\+R\+T} algorithm for generating nodes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to create a tree from. \\
+\hline
+{\em start} & The start point of the \hyperlink{classRRT}{R\+R\+T} algorithm. \\
+\hline
+{\em end} & The end point of the \hyperlink{classRRT}{R\+R\+T} algorithm. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 125 of file R\+R\+T.\+cpp.
+
+\hypertarget{classRRT_ad906dded9e6d3bb3f1f1f5972cd3fdf7}{\index{R\+R\+T@{R\+R\+T}!generate\+Branch@{generate\+Branch}}
+\index{generate\+Branch@{generate\+Branch}!R\+R\+T@{R\+R\+T}}
+\subsubsection[{generate\+Branch}]{\setlength{\rightskip}{0pt plus 5cm}void R\+R\+T\+::generate\+Branch (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classRRT_ad906dded9e6d3bb3f1f1f5972cd3fdf7}
+
+
+Causes the algorithm to produce an extra branch if it hasn't already reached the goal. 
+
+
+
+Definition at line 150 of file R\+R\+T.\+cpp.
+
+\hypertarget{classRRT_ac87ec16ecb94d25a9941b29c75dc83fa}{\index{R\+R\+T@{R\+R\+T}!is\+Valid\+Tile@{is\+Valid\+Tile}}
+\index{is\+Valid\+Tile@{is\+Valid\+Tile}!R\+R\+T@{R\+R\+T}}
+\subsubsection[{is\+Valid\+Tile}]{\setlength{\rightskip}{0pt plus 5cm}bool R\+R\+T\+::is\+Valid\+Tile (
+\begin{DoxyParamCaption}
+\item[{const sf\+::\+Vector2i \&}]{position, }
+\item[{const {\bf Tile\+Type}}]{base}
+\end{DoxyParamCaption}
+) const}}\label{classRRT_ac87ec16ecb94d25a9941b29c75dc83fa}
+
+
+Checks if the tile at the given position is valid according to the base type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position to check. \\
+\hline
+{\em base} & The base tile, this impacts whether the tile is valid. \hyperlink{LevelData_8hpp_a47dee72188473c57343127b1a5843398a46dc1018ac1d8fca7c2752a61ce2fd0f}{Tile\+Type\+::\+Out\+Of\+Bounds} allows any tile. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \hyperlink{LevelData_8hpp_a47dee72188473c57343127b1a5843398a27634ff8002b12e75d98e07ccd005d18}{Tile\+Type\+::\+Water} base can only travel on water, the rest can travel on land only. 
+\end{DoxyReturn}
+
+
+Definition at line 195 of file R\+R\+T.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRRT_ac87ec16ecb94d25a9941b29c75dc83fa_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classRRT_a21ff259bb7d646a09667b50602663abf}{\index{R\+R\+T@{R\+R\+T}!determine\+Nearest@{determine\+Nearest}}
+\index{determine\+Nearest@{determine\+Nearest}!R\+R\+T@{R\+R\+T}}
+\subsubsection[{determine\+Nearest}]{\setlength{\rightskip}{0pt plus 5cm}R\+R\+T\+Tree\+::\+Branch R\+R\+T\+::determine\+Nearest (
+\begin{DoxyParamCaption}
+\item[{const sf\+::\+Vector2i \&}]{position}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}}\label{classRRT_a21ff259bb7d646a09667b50602663abf}
+
+
+Determines the Branch closest to the given position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position to check for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The closest Branch. 
+\end{DoxyReturn}
+
+
+Definition at line 215 of file R\+R\+T.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{classRRT_a21ff259bb7d646a09667b50602663abf_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classRRT_a1393c4dc3be5c4d66756dbfb8b75abee}{\index{R\+R\+T@{R\+R\+T}!calculate\+Branch@{calculate\+Branch}}
+\index{calculate\+Branch@{calculate\+Branch}!R\+R\+T@{R\+R\+T}}
+\subsubsection[{calculate\+Branch}]{\setlength{\rightskip}{0pt plus 5cm}R\+R\+T\+Tree\+::\+Branch R\+R\+T\+::calculate\+Branch (
+\begin{DoxyParamCaption}
+\item[{const sf\+::\+Vector2i \&}]{start, }
+\item[{const sf\+::\+Vector2i \&}]{end}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}}\label{classRRT_a1393c4dc3be5c4d66756dbfb8b75abee}
+
+
+Calculates a new branch between the start and end point by sampling and checking for collision. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & The position to start from. \\
+\hline
+{\em end} & The target position. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new branch, this will be a nullptr if a branch couldn't be generated. 
+\end{DoxyReturn}
+
+
+Definition at line 245 of file R\+R\+T.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{classRRT_a1393c4dc3be5c4d66756dbfb8b75abee_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classRRT_a4990cccae7cd2160f1fa6e970242365a}{\index{R\+R\+T@{R\+R\+T}!m\+\_\+data@{m\+\_\+data}}
+\index{m\+\_\+data@{m\+\_\+data}!R\+R\+T@{R\+R\+T}}
+\subsubsection[{m\+\_\+data}]{\setlength{\rightskip}{0pt plus 5cm}std\+::shared\+\_\+ptr$<${\bf Level\+Data}$>$ R\+R\+T\+::m\+\_\+data \{ \}\hspace{0.3cm}{\ttfamily [private]}}}\label{classRRT_a4990cccae7cd2160f1fa6e970242365a}
+
+
+A pointer to the \hyperlink{classLevelData}{Level\+Data} which the \hyperlink{classTree}{Tree} will be generated with. 
+
+
+
+Definition at line 109 of file R\+R\+T.\+hpp.
+
+\hypertarget{classRRT_a4f0394ed9f6cd596f13b19a1617e56f9}{\index{R\+R\+T@{R\+R\+T}!m\+\_\+start@{m\+\_\+start}}
+\index{m\+\_\+start@{m\+\_\+start}!R\+R\+T@{R\+R\+T}}
+\subsubsection[{m\+\_\+start}]{\setlength{\rightskip}{0pt plus 5cm}sf\+::\+Vector2i R\+R\+T\+::m\+\_\+start \{ \}\hspace{0.3cm}{\ttfamily [private]}}}\label{classRRT_a4f0394ed9f6cd596f13b19a1617e56f9}
+
+
+The start point of the \hyperlink{classRRT}{R\+R\+T} algorithm. 
+
+
+
+Definition at line 110 of file R\+R\+T.\+hpp.
+
+\hypertarget{classRRT_a96f886227de84066adb285cbc6dcb2f5}{\index{R\+R\+T@{R\+R\+T}!m\+\_\+end@{m\+\_\+end}}
+\index{m\+\_\+end@{m\+\_\+end}!R\+R\+T@{R\+R\+T}}
+\subsubsection[{m\+\_\+end}]{\setlength{\rightskip}{0pt plus 5cm}sf\+::\+Vector2i R\+R\+T\+::m\+\_\+end \{ \}\hspace{0.3cm}{\ttfamily [private]}}}\label{classRRT_a96f886227de84066adb285cbc6dcb2f5}
+
+
+The end point of the \hyperlink{classRRT}{R\+R\+T} algorithm. 
+
+
+
+Definition at line 111 of file R\+R\+T.\+hpp.
+
+\hypertarget{classRRT_ad1501f1319a73e96ebdc3a9bb76dbdca}{\index{R\+R\+T@{R\+R\+T}!m\+\_\+sample\+Distance@{m\+\_\+sample\+Distance}}
+\index{m\+\_\+sample\+Distance@{m\+\_\+sample\+Distance}!R\+R\+T@{R\+R\+T}}
+\subsubsection[{m\+\_\+sample\+Distance}]{\setlength{\rightskip}{0pt plus 5cm}float R\+R\+T\+::m\+\_\+sample\+Distance \{ 0 \}\hspace{0.3cm}{\ttfamily [private]}}}\label{classRRT_ad1501f1319a73e96ebdc3a9bb76dbdca}
+
+
+How much to increment by when sampling the distance. 
+
+
+
+Definition at line 113 of file R\+R\+T.\+hpp.
+
+\hypertarget{classRRT_a2aaaa69617cfd685ae1d504e3cf31317}{\index{R\+R\+T@{R\+R\+T}!m\+\_\+branch\+Distance@{m\+\_\+branch\+Distance}}
+\index{m\+\_\+branch\+Distance@{m\+\_\+branch\+Distance}!R\+R\+T@{R\+R\+T}}
+\subsubsection[{m\+\_\+branch\+Distance}]{\setlength{\rightskip}{0pt plus 5cm}float R\+R\+T\+::m\+\_\+branch\+Distance \{ 0 \}\hspace{0.3cm}{\ttfamily [private]}}}\label{classRRT_a2aaaa69617cfd685ae1d504e3cf31317}
+
+
+The maximum distance of a branch. 
+
+
+
+Definition at line 114 of file R\+R\+T.\+hpp.
+
+\hypertarget{classRRT_a25e924b6450a7dc97c4ecff2735b5889}{\index{R\+R\+T@{R\+R\+T}!m\+\_\+nodes@{m\+\_\+nodes}}
+\index{m\+\_\+nodes@{m\+\_\+nodes}!R\+R\+T@{R\+R\+T}}
+\subsubsection[{m\+\_\+nodes}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$R\+R\+T\+Tree\+::\+Branch$>$ R\+R\+T\+::m\+\_\+nodes \{ \}\hspace{0.3cm}{\ttfamily [private]}}}\label{classRRT_a25e924b6450a7dc97c4ecff2735b5889}
+
+
+A collection of pointers to each branch in tile order. 
+
+
+
+Definition at line 116 of file R\+R\+T.\+hpp.
+
+\hypertarget{classRRT_a2905ea09c16ae59d6ee1beae15d12b2e}{\index{R\+R\+T@{R\+R\+T}!m\+\_\+tree@{m\+\_\+tree}}
+\index{m\+\_\+tree@{m\+\_\+tree}!R\+R\+T@{R\+R\+T}}
+\subsubsection[{m\+\_\+tree}]{\setlength{\rightskip}{0pt plus 5cm}std\+::shared\+\_\+ptr$<${\bf R\+R\+T\+Tree}$>$ R\+R\+T\+::m\+\_\+tree \{ \}\hspace{0.3cm}{\ttfamily [private]}}}\label{classRRT_a2905ea09c16ae59d6ee1beae15d12b2e}
+
+
+The tree containing each node and its branches. 
+
+
+
+Definition at line 117 of file R\+R\+T.\+hpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+U\+:/\+Work/\+Year2/\+G\+E\+C/\+A\+I/\+Source/\+R\+R\+T/\hyperlink{RRT_8hpp}{R\+R\+T.\+hpp}\item 
+U\+:/\+Work/\+Year2/\+G\+E\+C/\+A\+I/\+Source/\+R\+R\+T/\hyperlink{RRT_8cpp}{R\+R\+T.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,5 @@
+<map id="LevelData::determineTileType" name="LevelData::determineTileType">
+<area shape="rect" id="node2" href="$classLevelData.html#ad9e4687d526e6b503617338279aabb33" title="Reads the tile data of a level from a given stream. Throws exceptions upon errors. " alt="" coords="244,5,384,32"/>
+<area shape="rect" id="node3" href="$classLevelData.html#a1ec79101880076ae4291fcdda279633b" title="Load level data from a file at the given location. If an error occurs an exception will be thrown..." alt="" coords="432,5,593,32"/>
+<area shape="rect" id="node4" href="$classLevelData.html#a278138fae5c623551b7b90c28e75f056" title="Constructs a LevelData object from the given file containing level information. Exceptions can be thr..." alt="" coords="641,5,784,32"/>
+</map>
