@@ -1,4 +1,0 @@
-<map id="RRT::isValidTile" name="RRT::isValidTile">
-<area shape="rect" id="node2" href="$classRRT.html#a1393c4dc3be5c4d66756dbfb8b75abee" title="Calculates a new branch between the start and end point by sampling and checking for collision..." alt="" coords="168,5,316,32"/>
-<area shape="rect" id="node3" href="$classRRT.html#ad906dded9e6d3bb3f1f1f5972cd3fdf7" title="Causes the algorithm to produce an extra branch if it hasn&#39;t already reached the goal. " alt="" coords="364,5,511,32"/>
-</map>

@@ -1,4 +1,0 @@
-<map id="LevelData::getWidth" name="LevelData::getWidth">
-<area shape="rect" id="node2" href="$classLevelViewer.html#a09531b36a9fcc93cd3e2674da74ddd15" title="Creates a representation for the given LevelData object. " alt="" coords="192,5,355,32"/>
-<area shape="rect" id="node3" href="$classLevelViewer.html#a9455a951428ef99355e4b2431030cabc" title="Creates a LevelViewer object from the data contained in the given LevelData object. " alt="" coords="403,5,569,32"/>
-</map>
